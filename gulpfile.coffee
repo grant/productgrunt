@@ -15,7 +15,8 @@ minify = require 'gulp-minify-css'
 src =
   coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
   coffee_index: 'client/coffee/index.coffee'
-  stylus: 'client/stylus/pages/*.styl'
+  stylus: 'client/stylus/**/*.styl'
+  stylus_index: 'client/stylus/pages/*.styl'
   css: 'client_build/css/**/*.css'
 
 dest =
@@ -40,7 +41,7 @@ gulp.task 'coffee', ->
     .pipe gulp.dest dest.coffee
 
 gulp.task 'stylus', ->
-  gulp.src src.stylus
+  gulp.src src.stylus_index
     .pipe stylus()
     .pipe gulp.dest dest.stylus
 

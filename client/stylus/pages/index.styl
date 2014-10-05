@@ -1,0 +1,43 @@
+@import "../global"
+@import "../reset"
+
+.left
+  float left
+.right
+  float right
+
+*
+  font-family 'proxima-nova', 'Proxima Nova', sans-serif
+
+html
+  background-color color-page
+  color color-text-default
+
+.content
+  max-width 960px
+  margin 0 auto
+  position relative
+
+body
+  > header
+    margin-top 20px
+    box-shadow 0px -1px 0px 0px rgba(83,69,64,0.56), 0px -1px 2px 0px rgba(0,0,0,0.1)
+
+    > .content
+      padding 20px 0
+
+    .brand
+      .logo, .description
+        float left
+      .logo
+        height 42px
+        margin-right 10px
+      .description
+        line-height 22px
+        .title
+          color color-brand
+          font-size 20px
+          font-weight 700
+        .tagline
+          font-size 18px
+          font-weight 500
