@@ -9,4 +9,29 @@ block js
   include includes/ga
 
 block content
-  | hello
+  .content
+    .day
+      ul.posts
+        li.post
+          .left
+            button.downvote
+            .description
+              .title Product Grunt
+              .tagline The worst old products, every day
+          .right
+            .user-image
+              img(src='')
+      time.date
+        h4.day-name Today
+        h3.date October 5th
+    header
+      .left
+        .brand
+          .logo
+          .description
+            h1.title Product Grunt
+            h2.tagline The worst old products, every day
+      nav.right
+        button.post
+        .user-image
+          img(src='')
