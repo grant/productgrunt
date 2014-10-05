@@ -24,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/grant/productgrunt/issues"
   },
-  "homepage": "https://github.com/grant/productgrunt"
+  "homepage": "https://github.com/grant/productgrunt",
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
+  "dependencies": {
+    "express": "^4.9.5",
+    "passport": "^0.2.1",
+    "passport-twitter": "^1.0.2"
+  }
 }
