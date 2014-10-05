@@ -24,9 +24,12 @@ body
       > .posts
         > .post
           overflow hidden
+          padding 10px
+          border-radius 3px
+          margin-bottom 5px
 
-          > .left, > .right
-            width 100%
+          &:hover
+            background-color rgb(144, 38, 15)
 
           .description
             line-height 22px
@@ -35,7 +38,11 @@ body
               color #ddddee
               font-size 20px
               font-weight 700
+
+              &:hover
+                text-decoration underline
             .tagline
+              white-space nowrap
               color color-text-default
               font-size 18px
               font-weight 500
@@ -50,6 +57,15 @@ body
             background-color #333
             cursor pointer
             border-bottom 2px solid #555566
+
+            &:hover .arrow
+              border-top 12px solid color-brand                
+
+            &.voted
+              .arrow
+                border-top 12px solid color-brand
+              .vote-count
+                color color-brand
 
             .arrow
               position relative
@@ -67,6 +83,14 @@ body
               font-weight bold
               font-size 12px
               margin-top -4px
+
+          .user-image
+            margin-top 9px
+            margin-right 10px
+            border-radius 50%
+            width 30px
+            height 30px
+            background-color blue
   > header
     margin-top 20px
     box-shadow 0px -1px 0px 0px rgba(83,69,64,0.56), 0px -1px 2px 0px rgba(0,0,0,0.1)
