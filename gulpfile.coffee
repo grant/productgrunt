@@ -1,4 +1,5 @@
 # Modules
+browserify = require 'browserify'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
 gulp = require 'gulp'
