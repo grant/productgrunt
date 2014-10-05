@@ -9,18 +9,18 @@ methodOverride = require 'method-override'
 
 # Config vars
 client_build = 'client_build'
-server = 'server'
+server = './server'
 
 # Setup
 app = express()
 app.set 'port', process.env.PORT || 3000
 
 # Jade
-app.set 'views', '/views'
+app.set 'views', './views'
 app.set 'view engine', 'jade'
 
 # Middleware
-app.use favicon client_build + '/images/favicon.ico'
+# app.use favicon client_build + '/images/favicon.ico'
 app.use compression()
 app.use methodOverride()
 app.use express.static client_build
@@ -32,7 +32,7 @@ app.listen app.get('port'), ->
 routes = require server + '/routes'
 app.get '/', routes.index
 app.get '/about', routes.about
-app.get '/:username', routes.username
+app.get '/:username', routes.user
 
 # 404
 app.use routes[404]
