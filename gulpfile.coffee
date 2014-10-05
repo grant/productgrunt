@@ -1,5 +1,5 @@
 # Modules
-browserify = require 'browserify'
+browserify = require 'gulp-browserify'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
 gulp = require 'gulp'
@@ -33,12 +33,9 @@ gulp.task 'coffee', ->
 
   # Browserify
   gulp.src src.coffee_index
-    .pipe plumber()
+    # .pipe plumber()
     .pipe coffee().on 'error', gutil.log
-    .pipe browserify
-      transform: ['coffeeify']
-      extensions: ['.coffee']
-      insertGlobals: true
+    .pipe browserify()
     .pipe uglify()
     .pipe gulp.dest dest.coffee
 
