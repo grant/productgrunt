@@ -2,10 +2,10 @@
   "name": "productgrunt",
   "version": "0.0.0",
   "description": "Product Grunt is a curation of the worst new products, every day.",
-  "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "coffee ."
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/grant/productgrunt/issues"
   },
-  "homepage": "https://github.com/grant/productgrunt",
+  "homepage": "http://www.productgrunt.com/",
   "devDependencies": {
     "gulp": "^3.8.8"
   },
