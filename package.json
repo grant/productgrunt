@@ -1,0 +1,28 @@
+{
+  "name": "productgrunt",
+  "version": "0.0.0",
+  "description": "Product Grunt is a curation of the worst new products, every day.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grant/productgrunt.git"
+  },
+  "keywords": [
+    "product",
+    "grunt",
+    "worst",
+    "products",
+    "every",
+    "day"
+  ],
+  "author": "Grant Timmerman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grant/productgrunt/issues"
+  },
+  "homepage": "https://github.com/grant/productgrunt"
+}
