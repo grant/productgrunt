@@ -1,0 +1,63 @@
+extends layout
+
+block css
+  link(type='text/css' rel='stylesheet' href='/css/pages/index.css')
+
+block js
+  script(src='/js/index.js')
+  include includes/ga
+
+block content
+  .content
+    section
+      h3.title Holdup! What's this?
+      p.
+        Product Grunt is a curation of the worst old products, every day.
+         It's a place for product-loving entrepreneurs to share the most disfunctional websites,
+         hardware, apps, and services.
+      p.
+        By seeing the state of the world in a broken state, we as
+         technology enthusiasts have the opportunity to see these struggles, and
+         build products that solves people's pain.
+
+      h3.title What products should I submit to Product Grunt?
+      p
+        | People visit Product Grunt to discover opportunities for products to be better than
+        |  they currently are. If you know of or use a product that is less than optimal, let people know!
+
+      h3.title I have a product I want to share. How can I join the conversation?
+      p Log in with your Twitter account.
+
+      h3.title How can I reach you?
+      p Feel free to send us a line at
+        a(href='mailto:hello@productgrunt.com')  hello@productgrunt.com
+        | .
+
+      h3.title Open Souce
+      p Product Grunt is MIT-licenced. You can use it completely free, even for commercial applications. Why? Because the best things in life are free -- and I try to make the best things in life.
+
+      h3.title Mobile Ready
+      p Product Grunt is super easy to use on mobile and touch-friendly devices.
+
+      h3.title Who's behind the stage?
+      p
+        | Oh hello. Curious finding you here. I'm Grant Timmerman. I build pretty things
+        em  that work
+        | ! See my what I build in 
+        a(href='http://www.grant.cm/') my labs
+        | .
+  header
+    .content
+      .left
+        .brand
+          .logo
+            svg(viewBox='0 0 30 30' height='100%')
+              circle(fill='rgb(37, 170, 208)', cx='15', cy='15', r='15')
+              text(x='15', y='20', text-anchor='middle', fill='#111', style='font-family: \'proxima-nova\', \'Proxima Nova\', sans-serif;', font-weight='bold') G
+          .description
+            h1.title Product Grunt
+            h2.tagline The worst old products, every day
+      nav.right
+        button.post
+        .user-image
+          img(src='')
