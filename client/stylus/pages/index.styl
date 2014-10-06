@@ -24,6 +24,9 @@ body
       padding-top 20px
 
       > .date-area
+        display: inline-block
+        padding-bottom 20px
+
         > .day-name, > .date
           display inline-block
         > .day-name
@@ -31,17 +34,17 @@ body
           margin-right 10px
           margin-left 10px
           text-transform uppercase
-          color #ddddee
+          color color-text-title
         > .date
           font-size 16px
           font-weight 400
-          color #555566
+          color color-text-light
       > .posts
         > .post
           overflow hidden
           padding 10px
           border-radius 3px
-          margin-top 10px
+          margin-top 5px
           margin-bottom 5px
 
           &:hover
@@ -51,7 +54,7 @@ body
             line-height 22px
             .title
               margin-top 2px
-              color #ddddee
+              color color-text-title
               font-size 20px
               font-weight 700
 
@@ -70,9 +73,9 @@ body
             border-radius 3px
             margin-right 10px
             padding-bottom 4px
-            background-color #333
+            background-color color-button
             cursor pointer
-            border-bottom 2px solid #555566
+            border-bottom 2px solid color-button-highlight
 
             &:hover .arrow
               border-top 12px solid color-brand                
@@ -92,10 +95,10 @@ body
               border-bottom 12px solid transparent
               border-left 8px solid transparent
               border-right 8px solid transparent
-              border-top 12px solid #ddddee
+              border-top 12px solid color-text-title
 
             .vote-count
-              color #bbbbcc
+              color color-text-title-dark
               font-weight bold
               font-size 12px
               margin-top -4px
