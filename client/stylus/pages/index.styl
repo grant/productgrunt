@@ -1,17 +1,6 @@
 @import "../global"
 @import "../reset"
-
-.left
-  float left
-.right
-  float right
-
-*
-  font-family 'proxima-nova', 'Proxima Nova', sans-serif
-
-html
-  background-color color-page
-  color color-text-default
+@import "../common"
 
 .content
   max-width 960px
@@ -19,37 +8,7 @@ html
   position relative
 
 body
-  > header
-    margin-bottom 10px
-    box-shadow 0px 1px 0px 0px rgba(83,69,64,0.56), 0px 1px 2px 0px rgba(0,0,0,0.1)
-
-    > .content
-      padding 20px 10px
-      overflow hidden
-
-    .brand
-      .logo, .description
-        float left
-      .logo
-        height 42px
-        margin-right 10px
-      .description
-        line-height 22px
-        .title
-          color color-brand
-          font-size 20px
-          font-weight 700
-        .tagline
-          font-size 18px
-          font-weight 500
-
-    nav
-      font-size 20px
-      margin-top 10px
-      line-height 30px
-      li
-        display inline-block
-        margin-left 20px
+  @import "../sections/header"
   > .content
     > .day
       padding-top 20px
@@ -139,12 +98,7 @@ body
               font-size 12px
               margin-top -4px
 
+          @import "../components/user-image"
           .user-image
             margin-top 9px
             margin-right 10px
-
-.user-image
-  border-radius 50%
-  width 30px
-  height 30px
-  background-color blue

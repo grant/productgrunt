@@ -1,13 +1,13 @@
 extends layout
 
 block css
-  link(type='text/css' rel='stylesheet' href='/css/pages/index.css')
+  link(type='text/css' rel='stylesheet' href='/css/pages/about.css')
 
 block js
-  script(src='/js/index.js')
   include includes/ga
 
 block content
+  include includes/components/header
   .content
     section
       h3.title Holdup! What's this?
@@ -48,18 +48,3 @@ block content
         | ! See my what I build in 
         a(href='http://www.grant.cm/') my labs
         | .
-  header
-    .content
-      .left
-        .brand
-          .logo
-            svg(viewBox='0 0 30 30' height='100%')
-              circle(fill='rgb(37, 170, 208)', cx='15', cy='15', r='15')
-              text(x='15', y='20', text-anchor='middle', fill='#111', style='font-family: \'proxima-nova\', \'Proxima Nova\', sans-serif;', font-weight='bold') G
-          .description
-            h1.title Product Grunt
-            h2.tagline The worst old products, every day
-      nav.right
-        button.post
-        .user-image
-          img(src='')
