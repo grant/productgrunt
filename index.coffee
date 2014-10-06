@@ -2,6 +2,7 @@
 
 # Modules
 express = require 'express'
+session = require 'express-session'
 jade = require 'jade'
 favicon = require 'serve-favicon'
 compression = require 'compression'
@@ -24,10 +25,6 @@ app.set 'views', './views'
 app.set 'view engine', 'jade'
 
 # Middleware
-# app.use favicon client_build + '/images/favicon.ico'
-app.use compression()
-app.use methodOverride()
-app.use express.static client_build
 
 # Twitter Strategy
 passport.use new TwitterStrategy
@@ -37,6 +34,15 @@ passport.use new TwitterStrategy
   , (token, tokenSecret, profile, done) ->
     process.nextTick () ->
       return done(null, profile)
+
+# app.use favicon client_build + '/images/favicon.ico'
+app.use compression()
+app.use methodOverride()
+app.use express.static client_build
+app.use session secret: 'so secret'
+app.use passport.initialize()
+app.use passport.session()
+
 
 app.listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')
