@@ -9,7 +9,7 @@ block js
 block content
   include includes/components/header
   .content
-    section
+    section.about
       h3.title Holdup! What's this?
       p.
         Product Grunt is a curation of the worst old products, every day.
@@ -26,7 +26,7 @@ block content
         |  they currently are. If you know of or use a product that is less than optimal, let people know!
 
       h3.title I have a product I want to share. How can I join the conversation?
-      p Log in with your Twitter account.
+      p Log in with your Twitter account. Once you're in you can suggest products that should be shared.
 
       h3.title How can I reach you?
       p Feel free to send us a line at
@@ -37,14 +37,24 @@ block content
 
       h3.title Open Souce
       p Product Grunt is MIT-licenced. You can use it completely free, even for commercial applications. Why? Because the best things in life are free -- and I try to make the best things in life.
+      
+      h3.title Show me the code!
+      p
+        a(href='https://github.com/grant/productgrunt') Okay...
 
       h3.title Mobile Ready
-      p Product Grunt is super easy to use on mobile and touch-friendly devices.
+      p Product Grunt is super easy to use on mobile and touch-friendly devices. Try it out!
 
       h3.title Who's behind the stage?
       p
-        | Oh hello. Curious finding you here. I'm Grant Timmerman. I build pretty things
+        | Oh hello. Curious finding you here. I'm
+        a(href='http://www.grant.cm/')  Grant Timmerman
+        | . I build pretty things
         em  that work
-        | ! See my what I build in 
-        a(href='http://www.grant.cm/') my labs
+        | !
+      p
+        | Follow me on
+        a(href='http://www.github.com/grant')  Github
+        |  and
+        a(href='http://www.twitter.com/granttimmerman')  Twitter
         | .
