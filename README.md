@@ -8,7 +8,7 @@ Product Grunt is a curation of the worst new products, every day.
 git clone git@github.com:grant/productgrunt.git
 cd productgrunt
 npm install
-npm start
+foreman start
 ```
 
 ## Dev setup

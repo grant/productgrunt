@@ -6,8 +6,12 @@ jade = require 'jade'
 favicon = require 'serve-favicon'
 compression = require 'compression'
 methodOverride = require 'method-override'
+passport = require 'passport'
+TwitterStrategy = require('passport-twitter').Strategy
 
 # Config vars
+TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
 client_build = 'client_build'
 server = './server'
 
@@ -25,6 +29,15 @@ app.use compression()
 app.use methodOverride()
 app.use express.static client_build
 
+# Twitter Strategy
+passport.use new TwitterStrategy
+    consumerKey: TWITTER_CONSUMER_KEY
+    consumerSecret: TWITTER_CONSUMER_SECRET
+    callbackURL: 'http://0.0.0.0:5000/auth/twitter/callback'
+  , (token, tokenSecret, profile, done) ->
+    process.nextTick () ->
+      return done(null, profile)
+
 app.listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')
 
@@ -32,6 +45,7 @@ app.listen app.get('port'), ->
 routes = require server + '/routes'
 app.get '/', routes.index
 app.get '/about', routes.about
+app.get '/login', routes.login
 app.get '/:username', routes.user
 
 # 404

@@ -3,6 +3,8 @@
 routes =
   index: (req, res) ->
     res.render 'index'
+  login: (req, res) ->
+    # res.render 'login'
   about: (req, res) ->
     res.render 'about'
   user: (req, res) ->
