@@ -2,7 +2,7 @@
 
 routes =
   index: (req, res) ->
-    res.render 'index.jade'
+    res.render 'index'
   about: (req, res) ->
     res.render 'about'
   user: (req, res) ->

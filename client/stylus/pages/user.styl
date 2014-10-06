@@ -1,0 +1,32 @@
+@import "../global"
+@import "../reset"
+@import "../common"
+
+body
+  @import "../sections/header"
+  > .content
+    .user-bio
+      padding 30px 20px 20px 20px
+      text-align center
+
+      @import "../components/user-image"
+      .user-image
+        margin 50px auto
+        image-size = 150px
+        width image-size
+        height image-size
+
+      .name
+        margin 10px
+        color color-text-title
+        font-size 30px
+
+      .bio
+        color color-text-light
+        margin 15px
+        font-weight 400
+
+      .usernum
+        color color-text-title
+        margin 10px
+        font-weight 100

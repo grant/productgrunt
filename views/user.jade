@@ -1,0 +1,18 @@
+extends layout
+
+block css
+  link(type='text/css' rel='stylesheet' href='/css/pages/user.css')
+
+block js
+  include includes/ga
+
+block content
+  include includes/components/header
+  .content
+    .user-bio
+      a(href='twitter.com')
+        .user-image
+          img(src='')
+      h2.name Grant Timmerman
+      h3.bio Web evangelist & student
+      h4.usernum User #1
