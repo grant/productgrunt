@@ -8,24 +8,6 @@ block js
   include includes/ga
 
 block content
-  .content
-    .day
-      time.date-area
-        h4.day-name Today
-        h3.date October 5th
-      ul.posts
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count 23
-            .description
-              a.website
-                .title Title
-              .tagline This is the tagline
-          .right
-            .user-image
-              img(src='')
   header
     .content
       .left
@@ -41,3 +23,21 @@ block content
         button.post
         .user-image
           img(src='')
+  .content
+    .day
+      time.date-area
+        h4.day-name Today
+        h3.date October 5th
+      ul.posts
+        li.post
+          .left
+            button.downvote
+              .arrow
+              .vote-count -23
+            .description
+              a.website
+                .title Title
+              .tagline This is the tagline
+          .right
+            .user-image
+              img(src='')
