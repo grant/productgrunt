@@ -16,7 +16,7 @@ methodOverride = require 'method-override'
 passport = require 'passport'
 TwitterStrategy = require('passport-twitter').Strategy
 
-mongoSession = require(server + '/db/session')(express)
+mongoSession = require(server + '/db/session')(session)
 
 # Setup
 app = express()

@@ -26,6 +26,8 @@ heroku addons:add mongolab
 ```
 TWITTER_CONSUMER_KEY=<KEY>
 TWITTER_CONSUMER_SECRET=<SECRET>
+MONGOLAB_URI=<URI>
+MONGOLAB_SESSION_SECRET=<SECRET>
 ```
 
 3. Run the website locally
