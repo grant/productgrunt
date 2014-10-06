@@ -4,7 +4,10 @@ routes =
   index: (req, res) ->
     res.render 'index'
   login: (req, res) ->
-    # res.render 'login'
+    if req.isAuthenticated()
+      res.redirect '/'
+    else
+      res.redirect '/auth/twitter'
   logout: (req, res) ->
     req.logout()
     res.redirect '/'

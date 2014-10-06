@@ -1,5 +1,11 @@
 # Server
 
+# Config vars
+TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
+client_build = './client_build'
+server = './server'
+
 # Modules
 express = require 'express'
 session = require 'express-session'
@@ -10,11 +16,7 @@ methodOverride = require 'method-override'
 passport = require 'passport'
 TwitterStrategy = require('passport-twitter').Strategy
 
-# Config vars
-TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY
-TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
-client_build = 'client_build'
-server = './server'
+mongoSession = require(server + '/db/session')(express)
 
 # Setup
 app = express()
@@ -45,7 +47,7 @@ passport.use new TwitterStrategy
 app.use compression()
 app.use methodOverride()
 app.use express.static client_build
-app.use session secret: 'so secret'
+app.use session mongoSession
 app.use passport.initialize()
 app.use passport.session()
 
