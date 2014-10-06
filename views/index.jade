@@ -20,9 +20,14 @@ block content
             h1.title Product Grunt
             h2.tagline The worst old products, every day
       nav.right
-        button.post
-        .user-image
-          img(src='')
+        ul.nav-items
+          li.nav-item.about
+            a(href='/about') About
+          li.nav-item.post
+            a(href='/post') +
+          li.nav-item.image
+            .user-image
+              img(src='')
   .content
     .day
       time.date-area
