@@ -5,6 +5,14 @@ Schema = mongoose.Schema
 ObjectId = Schema.ObjectId
 
 userSchema = new Schema
+  # Twitter id
+  twitterId:
+    type: Number
+    required: true
+  # Twitter username
+  twitterUsername:
+    type: String
+    required: true
   # Full name from Twitter profile
   name:
     type: String
