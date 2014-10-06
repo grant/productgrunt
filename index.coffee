@@ -16,6 +16,7 @@ methodOverride = require 'method-override'
 passport = require 'passport'
 TwitterStrategy = require('passport-twitter').Strategy
 
+db = require server + '/db/connect'
 mongoSession = require(server + '/db/session')(session)
 
 # Setup
@@ -50,6 +51,9 @@ app.use express.static client_build
 app.use session mongoSession
 app.use passport.initialize()
 app.use passport.session()
+
+# DB
+db.connect()
 
 # Routes
 routes = require server + '/routes'

@@ -48,6 +48,7 @@
     "compression": "^1.1.0",
     "jade": "^1.7.0",
     "express-session": "^1.8.2",
-    "connect-mongo": "^0.4.1"
+    "connect-mongo": "^0.4.1",
+    "mongoose": "^3.8.17"
   }
 }
