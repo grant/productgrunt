@@ -27,6 +27,12 @@ app.set 'view engine', 'jade'
 # Middleware
 
 # Twitter Strategy
+passport.serializeUser (user, done) ->
+  done null, user
+
+passport.deserializeUser (obj, done) ->
+  done null, obj
+
 passport.use new TwitterStrategy
     consumerKey: TWITTER_CONSUMER_KEY
     consumerSecret: TWITTER_CONSUMER_SECRET
@@ -43,16 +49,21 @@ app.use session secret: 'so secret'
 app.use passport.initialize()
 app.use passport.session()
 
-
-app.listen app.get('port'), ->
-  console.log 'Express server listening on port ' + app.get('port')
-
 # Routes
 routes = require server + '/routes'
 app.get '/', routes.index
 app.get '/about', routes.about
 app.get '/login', routes.login
+app.get '/logout', routes.logout
 app.get '/:username', routes.user
+app.get '/auth/twitter', passport.authenticate('twitter')
+app.get '/auth/twitter/callback',
+  passport.authenticate('twitter', failureRedirect: '/login'),
+  (req, res) ->
+    res.send(req.user)
 
 # 404
 app.use routes[404]
+
+app.listen app.get('port'), ->
+  console.log 'Express server listening on port ' + app.get('port')

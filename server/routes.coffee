@@ -5,6 +5,9 @@ routes =
     res.render 'index'
   login: (req, res) ->
     # res.render 'login'
+  logout: (req, res) ->
+    req.logout()
+    res.redirect '/'
   about: (req, res) ->
     res.render 'about'
   user: (req, res) ->
