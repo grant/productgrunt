@@ -2,9 +2,11 @@
 browserify = require 'gulp-browserify'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
+imagemin = require 'gulp-imagemin'
 gulp = require 'gulp'
 gutil = require 'gulp-util'
 plumber = require 'gulp-plumber'
+pngcrush = require 'imagemin-pngcrush'
 prefix = require 'gulp-autoprefixer'
 stylus = require 'gulp-stylus'
 uglify = require 'gulp-uglify'
@@ -18,11 +20,13 @@ src =
   stylus: 'client/stylus/**/*.styl'
   stylus_index: 'client/stylus/pages/*.styl'
   css: 'client_build/css/**/*.css'
+  images: 'client/images/*'
 
 dest =
   css: 'client_build/css/'
   coffee: 'client_build/js/'
-  stylus: 'client_build/css/pages'
+  stylus: 'client_build/css/pages/'
+  images: 'client_build/images/'
 
 # Tasks
 gulp.task 'coffee', ->
@@ -51,9 +55,18 @@ gulp.task 'css', ->
     .pipe minify()
     .pipe gulp.dest dest.css
 
+gulp.task 'images', ->
+  gulp.src src.images
+    .pipe imagemin
+      progressive: true
+      svgoPlugins: [removeViewBox: false]
+      use: [pngcrush()]
+    .pipe gulp.dest dest.images
+
 gulp.task 'watch', ->
   gulp.watch src.coffee, ['coffee']
   gulp.watch src.css, ['css']
   gulp.watch src.stylus, ['stylus']
+  gulp.watch src.images, ['images']
 
-gulp.task 'default', ['stylus', 'css', 'coffee', 'watch']
+gulp.task 'default', ['stylus', 'css', 'coffee', 'images', 'watch']
