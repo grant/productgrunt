@@ -36,6 +36,14 @@ MONGOLAB_SESSION_SECRET=<SECRET>
 foreman start
 ```
 
+4. Run the website on heroku
+
+```sh
+git push heroku master
+heroku config:push
+heroku open
+```
+
 ## Dev setup
 
 ```sh
