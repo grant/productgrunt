@@ -44,7 +44,7 @@ passport.use new TwitterStrategy
     process.nextTick () ->
       return done(null, profile)
 
-# app.use favicon client_build + '/images/favicon.ico'
+app.use favicon client_build + '/images/favicon.ico'
 app.use compression()
 app.use methodOverride()
 app.use express.static client_build
