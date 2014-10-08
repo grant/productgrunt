@@ -4,7 +4,8 @@
   "description": "Product Grunt is a curation of the worst new products, every day.",
   "private": true,
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "postinstall": "coffeegulp stylus css coffee"
   },
   "repository": {
     "type": "git",
