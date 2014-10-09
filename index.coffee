@@ -5,6 +5,8 @@ TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY
 TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
 client_build = './client_build'
 server = './server'
+global.require_abs = (file) ->
+  require path.join __dirname, file
 
 # Modules
 os = require 'os'
@@ -63,18 +65,18 @@ db.connect()
 
 # Routes
 routes = require server + '/routes'
-app.get '/', routes.index
-app.get '/about', routes.about
-app.get '/login', routes.login
-app.get '/logout', routes.logout
-app.get '/:username', routes.user
+app.get '/', routes.get.index
+app.get '/about', routes.get.about
+app.get '/login', routes.get.login
+app.get '/logout', routes.get.logout
+app.get '/:username', routes.get.user
 app.get '/auth/twitter', passport.authenticate('twitter')
 app.get '/auth/twitter/callback',
   passport.authenticate('twitter', failureRedirect: '/login'),
-  routes.twitterAuthCallback
+  routes.get.twitterAuthCallback
 
 # 404
-app.use routes[404]
+app.use routes.get[404]
 
 app.listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')

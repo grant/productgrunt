@@ -1,7 +1,7 @@
-# Routes
-User = require './models/user'
+# GET Routes
+User = require_abs + '/models/user'
 
-routes =
+getRoutes =
   index: (req, res) ->
     res.render 'index',
       user: req.user
@@ -69,4 +69,4 @@ routes =
   404: (req, res) ->
     res.status(404).send('404')
 
-module.exports = routes
+module.exports = getRoutes
