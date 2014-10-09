@@ -20,7 +20,9 @@ postRoutes =
     else
       res.send 403
   downvote: (req, res) ->
+    productId = req.params.id
     if req.user
+      console.log productId
       # Toggle the downvote
       # See if the product is downvoted by this user
       
