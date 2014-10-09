@@ -58,8 +58,14 @@ routes =
     res.render 'about',
       user: req.user
   user: (req, res) ->
-    res.render 'user',
-      user: req.user
+    # Get the user data
+    User.findOne twitterUsername: req.params.username, (err, data) ->
+      if !data
+        res.send 'User not found'
+      else
+        res.render 'user',
+          user: req.user,
+          profile: data
   404: (req, res) ->
     res.status(404).send('404')
 
