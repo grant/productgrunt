@@ -10,80 +10,22 @@ block js
 block content
   include includes/components/header
   .content
-    .day
-      time.date-area
-        h4.day-name Today
-        h3.date October 8th
-      ul.posts
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count -23
-            .description
-              a.website(href='http://aol.com' target='_blank')
-                .title America Online
-              .tagline See What's Here For You
-          .right
-            .user-image
-              img(src='')
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count -14
-            .description
-              a.website(href='http://www.segway.com/' target='_blank')
-                .title Segway
-              .tagline Simply moving
-          .right
-            .user-image
-              img(src='')
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count -13
-            .description
-              a.website(href='http://hk.viewsonic.com/en/products/airpanel/index.php' target='_blank')
-                .title Air Panel V110
-              .tagline The ViewSonic air panel V110 Smart Display is all about freedom
-          .right
-            .user-image
-              img(src='')
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count -9
-            .description
-              a.website(href='http://us.blackberry.com/support/tablets/playbook/get-started.html' target='_blank')
-                .title BlackBerry PlayBook
-              .tagline Some eat up apps, others enjoy a main course. Playbook By Blackberry
-          .right
-            .user-image
-              img(src='')
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count -3
-            .description
-              a.website(href='http://blog.peekand.co/' target='_blank')
-                .title Twitter Peek
-              .tagline See What's Here For You
-          .right
-            .user-image
-              img(src='')
-        li.post
-          .left
-            button.downvote
-              .arrow
-              .vote-count -1
-            .description
-              a.website(href='https://web.archive.org/web/20110203024833/http://www.xbox.com/en-US/live/zune' target='_blank')
-                .title Microsoft Zune
-              .tagline Enjoy the Show
-          .right
-            .user-image
-              img(src='')
+    for day in days
+      .day
+        time.date-area
+          h4.day-name Today
+          h3.date October 9th
+        ul.posts
+          for product in day.products
+            li.post
+              .left
+                button.downvote
+                  .arrow
+                  .vote-count -#{product.downvotes}
+                .description
+                  a.website(href=product.link target='_blank')
+                    .title= product.title
+                  .tagline= product.tagline
+              .right
+                .user-image
+                  img.img(src=product.posterUser.twitterProfilePicture)

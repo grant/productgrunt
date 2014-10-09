@@ -14,8 +14,11 @@ getRoutes =
       .exec (err, products) ->
         console.log products
         res.render 'index',
-          user: req.user,
-          products: products
+          user: req.user
+          days: [
+            day: startOfDay
+            products: products
+          ]
   login: (req, res) ->
     if req.isAuthenticated()
       res.redirect '/'
