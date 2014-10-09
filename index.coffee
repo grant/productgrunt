@@ -7,6 +7,7 @@ client_build = './client_build'
 server = './server'
 
 # Modules
+os = require 'os'
 express = require 'express'
 session = require 'express-session'
 jade = require 'jade'
@@ -36,14 +37,19 @@ passport.serializeUser (user, done) ->
 passport.deserializeUser (obj, done) ->
   done null, obj
 
+if os.hostname().indexOf("local") > -1
+  callbackURL = 'http://0.0.0.0:5000/auth/twitter/callback'
+else
+  callbackURL = 'http://productgrunt.com/auth/twitter/callback'
 passport.use new TwitterStrategy
     consumerKey: TWITTER_CONSUMER_KEY
     consumerSecret: TWITTER_CONSUMER_SECRET
-    callbackURL: 'http://0.0.0.0:5000/auth/twitter/callback'
+    callbackURL: callbackURL
   , (token, tokenSecret, profile, done) ->
     process.nextTick () ->
       return done(null, profile)
 
+# Other middleware
 app.use favicon client_build + '/images/favicon.ico'
 app.use compression()
 app.use methodOverride()
