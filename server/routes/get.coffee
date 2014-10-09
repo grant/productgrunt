@@ -11,6 +11,7 @@ getRoutes =
     # Do the product query
     Product.find(displayDay: $gte: startOfDay)
       .populate('posterUser')
+      .sort(downvotes: -1)
       .exec (err, products) ->
         console.log products
         res.render 'index',
