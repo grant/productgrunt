@@ -11,8 +11,8 @@ block content
   .content
     .user-bio
       .user-image
-        a(href='twitter.com')
-          img(src='')
-      h2.name Grant Timmerman
-      h3.bio Web evangelist & student
-      h4.usernum User #1
+        a(href='http://twitter.com/'+user.username)
+          img.img(src=user.twitterProfilePicture)
+      h2.name= user.name
+      h3.bio= user.bio
+      h4.usernum User ##{user.uid}

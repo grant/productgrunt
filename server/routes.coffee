@@ -20,7 +20,11 @@ routes =
       if !data
         # Get new uid
         User.find().sort(uid:-1).limit(1).exec (err, data) ->
-          newUid = data[0].uid + 1
+          if data.length
+            newUid = data[0].uid + 1
+          else
+            # First user!
+            newUid = 1
 
           # Add user data
           req.user.twitterId = req.user.id
