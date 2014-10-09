@@ -44,6 +44,7 @@ getRoutes =
             uid: req.user.uid
 
           newUser.save (err, newUserSave) ->
+            req.user._id = newUserSave._id
             res.send '<header><meta http-equiv="refresh" content="0; url=/" /></header>'
       else
         # User has data, add it from DB response
@@ -52,6 +53,8 @@ getRoutes =
         req.user.twitterProfilePicture = data.twitterProfilePicture
         req.user.name = data.name
         req.user.bio = data.bio
+        req.user.uid = data.uid
+        req.user._id = data._id
 
         res.send '<header><meta http-equiv="refresh" content="0; url=/" /></header>'
   about: (req, res) ->

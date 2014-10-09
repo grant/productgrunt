@@ -3,8 +3,15 @@ User = require_abs + '/models/user'
 
 postRoutes =
   projectPost: (req, res) ->
-    res.send 'hi'
+    if req.user
+      res.send 403
+    else
+      res.send 'hi'
   downvote: (req, res) ->
-    res.send 'good'
+    if req.user
+      # Toggle the downvote
+      res.send 'good'
+    else
+      res.send 403
 
 module.exports = postRoutes
