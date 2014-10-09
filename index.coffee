@@ -5,17 +5,17 @@ TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY
 TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
 client_build = './client_build'
 server = './server'
-global.require_abs = (file) ->
-  require path.join __dirname, file
 
 # Modules
 os = require 'os'
+path = require 'path'
 express = require 'express'
 session = require 'express-session'
 jade = require 'jade'
 favicon = require 'serve-favicon'
 compression = require 'compression'
 methodOverride = require 'method-override'
+bodyParser = require 'body-parser'
 passport = require 'passport'
 TwitterStrategy = require('passport-twitter').Strategy
 
@@ -56,6 +56,8 @@ app.use favicon client_build + '/images/favicon.ico'
 app.use compression()
 app.use methodOverride()
 app.use express.static client_build
+app.use bodyParser.urlencoded()
+app.use bodyParser.json()
 app.use session mongoSession
 app.use passport.initialize()
 app.use passport.session()
@@ -69,11 +71,15 @@ app.get '/', routes.get.index
 app.get '/about', routes.get.about
 app.get '/login', routes.get.login
 app.get '/logout', routes.get.logout
+app.get '/post', routes.get.post
 app.get '/:username', routes.get.user
 app.get '/auth/twitter', passport.authenticate('twitter')
 app.get '/auth/twitter/callback',
   passport.authenticate('twitter', failureRedirect: '/login'),
   routes.get.twitterAuthCallback
+
+app.post '/post', routes.post.projectPost
+app.post '/downvote', routes.post.downvote
 
 # 404
 app.use routes.get[404]

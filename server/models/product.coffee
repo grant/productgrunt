@@ -22,9 +22,8 @@ productSchema = new Schema
     type: ObjectId
     ref: 'User'
     required: true
-  # The date that the product is displayed under
+  # The date that the product is displayed under, null if not displayed yet
   diplayDay:
     type: Date
-    required: true
 
 module.exports = mongoose.model 'Product', productSchema

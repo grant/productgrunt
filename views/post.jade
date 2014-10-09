@@ -1,0 +1,17 @@
+extends layout
+
+block css
+  link(type='text/css' rel='stylesheet' href='/css/pages/index.css')
+
+block js
+  script(src='/js/index.js')
+  include includes/ga
+
+block content
+  include includes/components/header
+  .content
+    form(action=('/post') method='post' name='post')
+      input(type='text' name='title' placeholder='Project title' required=true)
+      input(type='text' name='tagline' placeholder='Project tagline' required=true)
+      input(type='text' name='link' placeholder='productgrunt.com' required=true)
+      button.button(type='submit') Grunt!

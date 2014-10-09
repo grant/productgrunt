@@ -1,5 +1,5 @@
 # GET Routes
-User = require_abs + '/models/user'
+User = require '../models/user'
 
 getRoutes =
   index: (req, res) ->
@@ -59,6 +59,9 @@ getRoutes =
         res.send '<header><meta http-equiv="refresh" content="0; url=/" /></header>'
   about: (req, res) ->
     res.render 'about',
+      user: req.user
+  post: (req, res) ->
+    res.render 'post',
       user: req.user
   user: (req, res) ->
     # Get the user data
