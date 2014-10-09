@@ -6,7 +6,7 @@ routes =
     res.render 'index'
   login: (req, res) ->
     if req.isAuthenticated()
-      res.redirect '/auth/twitter/callback'
+      res.redirect '/'
     else
       res.redirect '/auth/twitter'
   logout: (req, res) ->

@@ -13,6 +13,10 @@ userSchema = new Schema
   twitterUsername:
     type: String
     required: true
+  # Twitter profile picture
+  twitterProfilePicture:
+    type: String
+    required: true
   # Full name from Twitter profile
   name:
     type: String
@@ -26,4 +30,4 @@ userSchema = new Schema
     type: Number
     required: true
 
-exports.User = mongoose.model 'User', userSchema
+module.exports = mongoose.model 'User', userSchema
