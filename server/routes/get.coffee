@@ -1,10 +1,21 @@
 # GET Routes
 User = require '../models/user'
+Product = require '../models/product'
 
 getRoutes =
   index: (req, res) ->
-    res.render 'index',
-      user: req.user
+    # Get the products that are supposed to display today
+    now = new Date()
+    startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+
+    # Do the product query
+    Product.find(displayDay: $gte: startOfDay)
+      .populate('posterUser')
+      .exec (err, products) ->
+        console.log products
+        res.render 'index',
+          user: req.user,
+          products: products
   login: (req, res) ->
     if req.isAuthenticated()
       res.redirect '/'

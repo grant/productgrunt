@@ -10,11 +10,10 @@ postRoutes =
     link = req.body.link
     if req.user
       newProduct = new Product
-        title: title,
-        tagline: tagline,
+        title: title
+        tagline: tagline
         link: link
         posterUser: userId
-        displayDay: null
 
       newProduct.save (err, product) ->
         res.redirect '/'
