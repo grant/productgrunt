@@ -9,12 +9,17 @@ block js
 block content
   include includes/components/header
   .content
-    section.post
-      h2.title Found something to grunt about?
-        span.dark  Grunt it!
-      form(action=('/post') method='post' name='post')
-        .inputs
-          input(type='text' name='link' placeholder='Product Link' required=true)
-          input(type='text' name='title' placeholder='Project Name' required=true)
-          input(type='text' name='tagline' placeholder='Tagline' required=true)
-        button.button(type='submit') Grunt it!
+    section.post(class=(user ? '' : 'logged-out'))
+      .login-overlay
+        h2.title
+          a(href='/login').link Log in
+          |  to post on Product Grunt!
+      .login-underlay
+        h2.title Found something to grunt about?
+          span.dark  Grunt it!
+        form(action=('/post') method='post' name='post')
+          .inputs
+            input(type='text' name='link' placeholder='Product Link' required=true)
+            input(type='text' name='title' placeholder='Project Name' required=true)
+            input(type='text' name='tagline' placeholder='Tagline' required=true)
+          button.button(type='submit') Grunt it!

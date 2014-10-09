@@ -10,6 +10,38 @@ body
       padding 30px 15px
       line-height 25px
 
+      &.logged-out
+        .login-underlay
+          -webkit-filter blur(3px)
+          -moz-filter blur(3px)
+          -ms-filter blur(3px)
+          -o-filter blur(3px)
+          filter blur(3px)
+          pointer-events none
+
+        .login-overlay
+          display block
+
+      .login-overlay
+        z-index 100
+        display none
+        width 100%
+        position absolute
+        top 195px
+
+        .title
+          width 450px
+          margin 0 auto
+          font-size 26px
+          padding 10px 5px
+          border-radius 5px
+          background-color rgba(black, 0.6)
+
+          .link
+            color color-brand
+            &:hover
+              text-decoration underline
+
       .title
         padding 20px
         font-size 30px
