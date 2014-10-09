@@ -19,8 +19,11 @@
         font-size 20px
         font-weight 700
       .tagline
+        transition color transition-duration
         font-size 18px
         font-weight 500
+    &:hover .description .tagline
+      color color-brand-light
 
   nav
     font-size 20px
@@ -31,3 +34,7 @@
       display inline-block
       margin-left 20px
       @import "../components/user-image"
+
+      transition color transition-duration
+      &:hover
+        color color-brand
