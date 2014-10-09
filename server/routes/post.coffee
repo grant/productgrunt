@@ -23,7 +23,8 @@ postRoutes =
   downvote: (req, res) ->
     if req.user
       # Toggle the downvote
-      res.send 'good'
+      # See if the product is downvoted by this user
+      
     else
       res.send 403
 

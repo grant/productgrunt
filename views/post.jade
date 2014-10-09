@@ -1,17 +1,20 @@
 extends layout
 
 block css
-  link(type='text/css' rel='stylesheet' href='/css/pages/index.css')
+  link(type='text/css' rel='stylesheet' href='/css/pages/post.css')
 
 block js
-  script(src='/js/index.js')
   include includes/ga
 
 block content
   include includes/components/header
   .content
-    form(action=('/post') method='post' name='post')
-      input(type='text' name='title' placeholder='Project title' required=true)
-      input(type='text' name='tagline' placeholder='Project tagline' required=true)
-      input(type='text' name='link' placeholder='productgrunt.com' required=true)
-      button.button(type='submit') Grunt!
+    section.post
+      h2.title Found something to grunt about?
+        span.dark  Grunt it!
+      form(action=('/post') method='post' name='post')
+        .inputs
+          input(type='text' name='link' placeholder='Product Link' required=true)
+          input(type='text' name='title' placeholder='Project Name' required=true)
+          input(type='text' name='tagline' placeholder='Tagline' required=true)
+        button.button(type='submit') Grunt it!
