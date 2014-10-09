@@ -18,9 +18,13 @@ productSchema = new Schema
     type: String
     required: true
   # The user id of the poster
-  name:
+  posterUser:
     type: ObjectId
     ref: 'User'
+    required: true
+  # The date that the product is displayed under
+  diplayDay:
+    type: Date
     required: true
 
 module.exports = mongoose.model 'Product', productSchema
