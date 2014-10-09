@@ -26,7 +26,7 @@ routes =
             # First user!
             newUid = 1
 
-          # Add user data
+          # Add user data from twitter API response
           req.user.twitterId = req.user.id
           req.user.twitterUsername = req.user.username
           photoURL = req.user.photos[0].value
@@ -46,7 +46,7 @@ routes =
           newUser.save (err, newUserSave) ->
             res.send '<header><meta http-equiv="refresh" content="0; url=/" /></header>'
       else
-        # User has data, add it
+        # User has data, add it from DB response
         req.user.twitterId = data.twitterId
         req.user.twitterUsername = data.twitterUsername
         req.user.twitterProfilePicture = data.twitterProfilePicture
