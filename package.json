@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "test": "mocha",
-    "postinstall": "coffeegulp stylus css coffee"
+    "postinstall": "coffeegulp stylus css coffee images"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "repository": {
     "type": "git",
