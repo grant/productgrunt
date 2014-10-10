@@ -28,4 +28,5 @@ block content
                   .tagline= product.tagline
               .right
                 .user-image
-                  img.img(src=product.posterUser.twitterProfilePicture)
+                  a(href='/' + product.posterUser.twitterUsername)
+                    img.img(src=product.posterUser.twitterProfilePicture)

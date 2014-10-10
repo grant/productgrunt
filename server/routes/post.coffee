@@ -29,8 +29,8 @@ postRoutes =
   downvote: (req, res) ->
     productId = req.body.productId.substring(1, 25)
     productObjectId = ObjectId(productId)
-    userObjectId = req.user._id
     if req.user
+      userObjectId = req.user._id
       # Toggle the downvote
       # See if the product is downvoted by this user
       Downvote.find
@@ -56,6 +56,6 @@ postRoutes =
         else
           res.send success: false
     else
-      res.send 403
+      res.send success: false
 
 module.exports = postRoutes
