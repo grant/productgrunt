@@ -1,12 +1,19 @@
 # GET Routes
 User = require '../models/user'
 Product = require '../models/product'
+Downvotes = require '../models/downvote'
 
 getRoutes =
   index: (req, res) ->
     # Get the products that are supposed to display today
     now = new Date()
     startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+
+    # downvotedProducts = []
+    # if req.user
+    #   Downvotes.find user: req.user._id, (err, downvotes) ->
+    #     for downvote in downvotes
+    #       downvotedProducts.push downvote.product
 
     # Do the product query
     Product.find(displayDay: $gte: startOfDay)
