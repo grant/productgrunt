@@ -20,7 +20,7 @@ postRoutes =
         tagline: tagline
         link: link
         posterUser: userId
-        # displayDay: new Date()
+        displayDay: new Date()
 
       newProduct.save (err, product) ->
         res.redirect '/'
