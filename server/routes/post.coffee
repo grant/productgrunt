@@ -1,6 +1,12 @@
 # POST Routes
+async = require 'async'
+
 User = require '../models/user'
 Product = require '../models/product'
+Downvote = require '../models/downvote'
+
+mongoose = require 'mongoose'
+ObjectId = mongoose.Types.ObjectId
 
 postRoutes =
   projectPost: (req, res) ->
@@ -20,12 +26,34 @@ postRoutes =
     else
       res.send 403
   downvote: (req, res) ->
-    productId = req.params.id
+    productId = req.body.productId.substring(1, 25)
+    productObjectId = ObjectId(productId)
+    userObjectId = req.user._id
     if req.user
-      console.log productId
       # Toggle the downvote
       # See if the product is downvoted by this user
-      
+      Downvote.find
+        product: productObjectId
+        user: userObjectId
+      , (err, data) ->
+        if data.length == 0
+          # Add downvote
+          downvote = new Downvote
+            product: productObjectId
+            user: userObjectId
+
+          async.parallel [
+            (cb) ->
+              # Increase product downvote by one
+              Product.update _id: productObjectId, {$inc: {downvotes: 1}}, (err, data) ->
+                cb(err, data)
+            (cb) ->
+              downvote.save (err, savedDownvote) ->
+                cb(err, savedDownvote)
+          ], (err, results) ->
+            res.send success: !err
+        else
+          res.send success: false
     else
       res.send 403
 

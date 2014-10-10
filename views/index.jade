@@ -19,7 +19,7 @@ block content
           for product in day.products
             li.post
               .left
-                button.downvote(data-id=product._id)
+                button.downvote(data-productid=product._id)
                   .arrow
                   .vote-count -#{product.downvotes}
                 .description

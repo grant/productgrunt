@@ -13,7 +13,6 @@ getRoutes =
       .populate('posterUser')
       .sort(downvotes: -1)
       .exec (err, products) ->
-        console.log products
         res.render 'index',
           user: req.user
           days: [
