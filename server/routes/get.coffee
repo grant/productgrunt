@@ -36,6 +36,7 @@ getRoutes =
     res.redirect '/'
   twitterAuthCallback: (req, res) ->
     # Create Product Grunt user if doesn't exist
+    req.user = req.user || {}
     twitterId = +req.user.id
     User.findOne twitterId: twitterId, (err, data) ->
       if !data
@@ -65,7 +66,8 @@ getRoutes =
             uid: req.user.uid
 
           newUser.save (err, newUserSave) ->
-            req.user._id = newUserSave._id
+            if newUserSave
+              req.user._id = newUserSave._id
             res.send '<header><meta http-equiv="refresh" content="0; url=/" /></header>'
       else
         # User has data, add it from DB response
