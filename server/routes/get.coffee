@@ -16,7 +16,7 @@ getRoutes =
     #       downvotedProducts.push downvote.product
 
     # Do the product query
-    Product.find(displayDay: $gte: startOfDay)
+    Product.find()
       .populate('posterUser')
       .sort(downvotes: -1)
       .exec (err, products) ->
