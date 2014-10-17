@@ -1,5 +1,6 @@
 # Modules
 browserify = require 'gulp-browserify'
+clean = require 'gulp-clean'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
 imagemin = require 'gulp-imagemin'
@@ -15,17 +16,19 @@ minify = require 'gulp-minify-css'
 
 # File path config
 src =
-  coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
+  coffee: [
+    'gulpfile.coffee'
+    'client/coffee/**/*.coffee'
+    'server/**/*.coffee'
+  ]
   coffee_index: 'client/coffee/index.coffee'
   stylus: 'client/stylus/**/*.styl'
   stylus_index: 'client/stylus/pages/*.styl'
-  css: 'client_build/css/**/*.css'
   images: 'client/images/*'
 
 dest =
-  css: 'client_build/css/'
+  css: 'client_build/css/pages/'
   coffee: 'client_build/js/'
-  stylus: 'client_build/css/pages/'
   images: 'client_build/images/'
 
 # Tasks
@@ -47,10 +50,6 @@ gulp.task 'coffee', ->
 gulp.task 'stylus', ->
   gulp.src src.stylus_index
     .pipe stylus()
-    .pipe gulp.dest dest.stylus
-
-gulp.task 'css', ->
-  gulp.src src.css
     .pipe prefix()
     .pipe minify()
     .pipe gulp.dest dest.css
@@ -64,9 +63,9 @@ gulp.task 'images', ->
     .pipe gulp.dest dest.images
 
 gulp.task 'watch', ->
+  # Build
   gulp.watch src.coffee, ['coffee']
-  gulp.watch src.css, ['css']
   gulp.watch src.stylus, ['stylus']
   gulp.watch src.images, ['images']
 
-gulp.task 'default', ['stylus', 'css', 'coffee', 'images', 'watch']
+gulp.task 'default', ['stylus', 'coffee', 'images', 'watch']
