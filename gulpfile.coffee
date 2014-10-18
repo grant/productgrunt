@@ -62,6 +62,15 @@ gulp.task 'images', ->
       use: [pngcrush()]
     .pipe gulp.dest dest.images
 
+gulp.task 'clean', ->
+  filesToClean = [
+    dest.css + '*.css'
+    dest.coffee + '*.js'
+    dest.images + '*'
+  ]
+  gulp.src filesToClean, read: false
+    .pipe clean()
+
 gulp.task 'watch', ->
   # Build
   gulp.watch src.coffee, ['coffee']
